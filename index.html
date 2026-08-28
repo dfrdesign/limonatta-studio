@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f4ec">
+  <meta name="description" content="Limonatta Studio by Paulina Limón — fotografía, video y contenido para marcas.">
+  <title>Limonatta Studio — by Paulina Limón</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Italianno&family=Libre+Bodoni:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #f8f4ec;
+      --cream-2: #f2e8d1;
+      --pink: #e8a59c;
+      --pink-dark: #d98f86;
+      --ink: #201b18;
+      --muted: #756960;
+      --line: rgba(217, 143, 134, .48);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--cream); /* sin imagen de fondo */
+      color: var(--ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      overflow-x: hidden;
+    }
+
+    .page {
+      min-height: 100svh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .page::before,
+    .page::after {
+      content: "";
+      position: fixed;
+      inset-block: 0;
+      width: 72px;
+      z-index: -1;
+      opacity: .78;
+      background: repeating-linear-gradient(90deg, var(--cream-2) 0 16px, transparent 16px 28px);
+      pointer-events: none;
+    }
+    .page::before { left: 0; }
+    .page::after { right: 0; transform: scaleX(-1); }
+
+    main {
+      width: min(930px, calc(100% - 48px));
+      margin: 0 auto;
+      display: grid;
+      place-items: center;
+      padding: 72px 0 86px;
+      text-align: center;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      padding: 20px 10px;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      color: var(--pink);
+      transform-origin: center;
+      will-change: transform, opacity;
+    }
+
+    .sparkle.one {
+      top: 6px;
+      left: 10%;
+      animation: sparkleOne 3.8s ease-in-out infinite;
+    }
+
+    .sparkle.two {
+      right: 12%;
+      bottom: 22px;
+      width: 25px;
+      height: 25px;
+      animation: sparkleTwo 4.6s ease-in-out .7s infinite;
+    }
+
+    @keyframes sparkleOne {
+      0%, 100% { transform: rotate(-8deg) scale(1); opacity: .72; }
+      50% { transform: rotate(7deg) scale(1.14); opacity: 1; }
+    }
+
+    @keyframes sparkleTwo {
+      0%, 100% { transform: rotate(10deg) scale(1); opacity: .68; }
+      50% { transform: rotate(-5deg) scale(1.12); opacity: 1; }
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--pink-dark);
+      font-size: .82rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .logo-wrap {
+      width: min(430px, 62vw);
+      margin: 0 auto 10px;
+      color: var(--ink);
+    }
+
+    .logo-wrap svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      fill: currentColor;
+      margin: 0 auto 8px;
+    }
+
+    .studio-word {
+      font-family: "Libre Bodoni", "Bodoni MT", Didot, serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 500;
+      letter-spacing: .14em;
+      line-height: .95;
+      text-transform: uppercase;
+    }
+
+    .signature {
+      margin: 0 0 26px;
+      font-family: "Italianno", cursive;
+      font-size: clamp(2rem, 4.2vw, 3.35rem);
+      line-height: 1;
+    }
+
+    h1 {
+      max-width: 680px;
+      font-family: "Libre Bodoni", "Bodoni MT", Didot, serif;
+      margin: 0 auto 18px;
+      font-size: clamp(2.15rem, 5vw, 4.55rem);
+      font-weight: 500;
+      line-height: .98;
+      letter-spacing: -.025em;
+    }
+
+    .intro {
+      max-width: 560px;
+      font-family: "Libre Bodoni", "Bodoni MT", Didot, serif;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      line-height: 1.55;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      min-width: 180px;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid var(--pink);
+      text-decoration: none;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      transition: transform .2s ease, background-color .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+    .btn svg { width: 18px; height: 18px; flex: 0 0 auto; }
+    .btn.primary { background: var(--pink); color: white; box-shadow: 0 10px 28px rgba(217, 143, 134, .18); }
+    .btn.secondary { background: rgba(255,255,255,.18); color: var(--pink-dark); }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary:hover { background: var(--pink-dark); }
+    .btn.secondary:hover { background: rgba(232,165,156,.10); }
+
+    footer {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 22px 0 28px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .78rem;
+      letter-spacing: .04em;
+    }
+    footer span:last-child { text-align: right; }
+
+    @media (max-width: 760px) {
+      .page::before, .page::after { width: 22px; opacity: .5; }
+      main, footer { width: min(100% - 40px, 930px); }
+      main { padding: 54px 0 64px; }
+      .logo-wrap { width: min(360px, 80vw); }
+      .actions { width: 100%; }
+      .btn { width: min(100%, 320px); }
+      footer { flex-direction: column; align-items: center; text-align: center; }
+      footer span:last-child { text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; }
+      .sparkle { animation: none !important; }
+      .sparkle.one { transform: rotate(-8deg); opacity: .85; }
+      .sparkle.two { transform: rotate(10deg); opacity: .85; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <svg class="sparkle one" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 2c1.4 9.8 4.3 16.6 16 18-11.7 1.4-14.6 8.2-16 18-1.4-9.8-4.3-16.6-16-18C15.7 18.6 18.6 11.8 20 2Z" fill="none" stroke="currentColor" stroke-width="2"/>
+        </svg>
+
+        <p class="eyebrow">Próximamente</p>
+
+        <div class="logo-wrap" aria-label="Limonatta">
+          <svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 885.88 267.8">
+  <g id="Capa_1-2" data-name="Capa 1">
+    <path d="M346.12,119.27c-13.53,3.73-21.46,19.07-21.54,32.64l-.36,61.2h-26.49s-.34-86.19-.34-86.19c-.74-3-1.91-5.28-3.94-6.64-9.62-6.45-29.23,8.85-29.37,32.06l-.36,60.77-26.46.02-.14-22.85-.11-61.04c0-3.47-2.51-5.57-6.02-5.31-1.05.08-3.34.3-4-.42-.84-1.7-.59-3.96-.18-5.73l8.57-2.02c9.84-2.32,19.09-5.5,27.99-11.21l.69,20.36,5.61-6.35c7-7.92,16.56-11.84,27.15-11.86,14.44-.03,22.58,6.59,26.6,20.05,7.32-9.65,11.23-13.89,22.07-18.38,4-1.66,8.21-1.28,12.4-1.53,13.27-.81,23.36,7.66,26.3,21.06l.64,85.23-26.63.06-.28-86.38c-.97-6.01-6.24-9.05-11.8-7.52Z"/>
+    <path d="M865.6,129.91l11.88,47.68,8.4,35.4-27.51.18-.28-17.29-7.81,8.23c-9.97,7.43-21.97,11.33-34.4,10.12-10.53-1.02-19.93-5.83-25.17-14.83-.46,1.46-.64,2.53-1.78,3.2l-16.99,9.83c-4.81,2.78-9.38,2.59-14.62.3-6.67-2.91-11.86-10.13-11.86-17.99l.02-45.41-.07-33.3h-24.05s.07,73.6.07,73.6c.08,3,1.25,6.18,4.03,7.22,3.93,1.46,7.95.26,11.87-1.38,1.12,1.8,1.82,3.64,1.9,6.14-6.92,4.35-13.74,8.87-21.38,11.96-11.16,4.51-22.86-8.48-22.93-15.28l-.24-24.41-.22-57.14-15.61-.93,42.44-42.59.23,34.83,15.43.16,35.37-35.26.28,35.16,14.54.12-.02,7.84-14.33.19-.69,11.71.02,52.48c0,4.25-.13,8.14.83,12.19,1.22,5.17,6.15,5.53,11.99,4.04,1.5-.38,2.58-1.1,4.49-.46-1.13-7.11-.42-14.03,3.05-20.48,2.81-5.24,6.51-10.43,11.04-14.25l9.33-7.86,9.29-6.38c-8.55-2.55-17.2-5.02-26.41-6.24-2.29-.3-4.24.18-6.71-.94,1.06-5.28,2.03-11.39,6.04-15.47l8.14-8.28c10.8-8.31,22.37-10.47,35.93-9.16,12.81,1.24,23.3,10.19,26.44,22.77ZM836.55,139.88l21.27-8.78c-1.15-4.57-4.32-9.4-8.99-10.95-10.72-3.54-22.35.55-29.39,9.02-1.42,1.71-3.16,5.3-1.85,6.84,4.32,2.45,9.03,3.73,13.69,5.12,1.79.53,3.76-.63,5.27-1.26ZM858.08,160.13l.11-20.15-14.22,7.46,9.48,7.56,4.63,5.14ZM841.49,200.15c7.34-4.11,12.77-11.5,14.17-19.64,1.95-11.29-9.26-22.66-19.77-27.12-1.63-.32-2.82,2.3-3.85,2.93-2.71,1.65-4.8,4.36-6.93,6.79-5.66,6.46-9.74,13.92-9.91,22.57-.1,5.13.72,9.31,5.04,12.57,5.82,4.4,14.19,5.87,21.26,1.91Z"/>
+    <path d="M547.09,119.03c-7.69-.55-14.22,4.7-18.43,10.66-4.31,6.11-6.62,12.96-7.13,20.54l-.66,9.87.04,53-26.5.06-.09-77.97c-.49-3.11.64-6.81-.93-9.37s-5.95-1.93-8.82-1.71c-.79-2.19-.36-4.27-.35-6.93,8.04-.75,15.67-3.08,23.46-5.82l13.16-6.63.17,20.87c3.66-3.79,5.91-8.12,10.13-11.14,4.89-3.49,10.63-6.62,16.75-7.34l11.25-.13c12.05,1.11,21.03,11.03,21.84,23.31l.63,46.67.2,36.16-26.99.09.02-86.55c-.69-3.88-3.26-7.29-7.77-7.61Z"/>
+    <path d="M650.45,203.94c-15.4,12.34-39.87,15-54.68,1.66-13.76-12.4-4.94-32.37,8.38-44.46,4.38-3.98,8.45-7.8,13.68-10.64,1.57-.86,3.01-1.62,4.43-3.29-8.62-2.46-17.12-5.11-26.36-6.22-2.33-.28-4.73.32-6.74-1.23,2.81-14.97,11.44-24,25.13-29.6,5.96-2.44,11.4-3.39,17.79-3.44,17.32-.11,27.93,6.65,33.72,22.9l5.51,21.45,9.75,40.82,4.97,20.55-10.86.51-16.66.17-.24-17.16-7.83,7.99ZM633.23,141.6c8.53-4.19,16.17-7.72,24.69-10.25-1.21-4.73-3.93-9.37-8.55-10.97-10.28-3.58-21.72-.19-28.79,7.77-2.02,2.27-3.36,4.63-3.39,7.8,5.28,2.36,10.45,4.39,16.03,5.65ZM658.17,160.18l.2-20.09-14.37,7.41c5.65,4.05,10.31,7.74,14.17,12.67ZM647.46,195.83c4.1-4.28,7.63-9.15,8.36-15.38,1.4-12.08-8.83-22.04-19.93-27.36l-7.87,7.03c-7.67,6.85-12.54,16.35-12.94,26.94-.24,6.47,4.52,11.81,10.19,13.96,8.16,3.09,16.31.94,22.18-5.18Z"/>
+    <path d="M482.26,167.04c-.03,9.9-2.98,18.61-7.72,27.03-9.1,16.17-28.04,23.48-46.3,19.12-14.76-3.53-25.78-14.91-30.02-29.63-4.69-16.29-4.33-33.77,1.03-49.8,1.86-5.56,5.01-10.07,8.7-14.37,7.71-8.99,19.12-12.86,30.77-12.63,6.22.12,11.57.62,17.21,3.44,2.65,1.33,5.65,2.25,7.92,4.53l7.5,7.53c7.57,9.74,10.97,21.61,10.94,33.86l-.03,10.92ZM452.64,202.53c1.94-1.68,3.47-3.73,4.25-6.01,3.57-10.41,3.68-21.15,2-31.97-1.46-9.42-3.66-18.09-7.68-26.64s-10.73-19.55-19.16-21.71c-9.8-2.51-13.57,12.38-14.24,23.04-.74,11.86,1.68,23.25,5.09,34.61,2.42,8.08,6.16,15.08,11.11,21.84,4.89,6.68,12.64,12.01,18.63,6.84Z"/>
+    <path d="M156.61,213.17l-.29-78.01-.25-54.44c-.02-4.21-5.38-2.79-9.28-4.02-1.01-1.27-.55-3.93-.17-5.65,12.91-2.01,24.61-6.45,36.37-12.61l.27,15.35.02,21.35.03,118.04h-26.7Z"/>
+    <path d="M57.11,263.87c-.8,3.58-6.32,4.94-9.14,3.13-2.24-1.43-2.53-3.87-3.16-6.13l-7.79-28.27c-1.63-5.93-3.23-11.41-6.54-16.6-2.64-4.13-4.63-8.71-8.09-12.25-6.86-7.03-16.93-6.36-20.16-8.82-1.94-1.48-2.58-4.34-2.07-6.38.58-2.37,1.81-4.67,4.19-5.99,11.67-6.47,21.35-16.45,24.17-29.79l6.3-29.82c.37-1.74,1.05-3.6,2.14-4.14,1.55-.77,3.66-1.23,5.36-.53,3.27,1.36,4.48,5.31,4.5,8.94.1,14.49,4.21,28.26,13.05,39.55,7.64,3.63,18.43,4.24,21.68,8.56,1.1,1.47,1.11,4.3.34,5.95-1.74,3.76-5.17,5.48-8.85,6.84-8.66,3.21-15.01,11.54-16.48,20.96-1.03,6.64-.3,13.59-.14,20.4l.49,20.62c.11,4.55,1.2,9.15.18,13.76ZM43.97,216.73c1.06-6.12.87-10.84,2.56-15.79,2.11-7.86,6.53-14.76,13.41-19.93-4.11-2.42-8-4.31-10.96-7.84-4.03-4.81-6.11-10.54-9.05-15.99-5.03,13.81-10.55,21.62-21.26,30.27,3.7,2.05,8.17,2.92,10.64,6.07l5.21,6.63c4.09,5.21,6.33,11.15,9.44,16.59Z"/>
+    <path d="M196.47,183.38l-.23-55.43c0-2.26-1.47-3.75-3.59-3.83l-6.27-.24.05-6.5c13.13-2.05,25.23-5.62,36.7-12.77l.39,21.59.11,86.94-27.3.02.15-29.77Z"/>
+    <path d="M77,90.35c-5.1,1.18-8.06-5.2-8.82-9.22l-3.42-18.24c-.6-3.18-2.3-5.79-5.63-6.4l-8.31-1.52c-3.35-.61-6.39-4.19-4.79-7.63,1.27-2.71,4.64-3.81,7.08-5.23C68.5,33.1,59.13-.13,69,0c1.93.03,3.75,1.5,4.22,3.7,1.88,8.89,3.37,17.58,5.75,26.37,2.71,10.02,13.97,5.64,16.72,12.05.88,2.06.85,5.17-1.04,6.52-5.4,3.85-15.59,2.82-14.88,12.87l1.36,19.19c.2,2.77-.5,8.81-4.13,9.65ZM71.09,51.1c1.1-2.64,2.31-4.43,3.75-6.69l-4.96-5-4,6.39,5.22,5.3Z"/>
+    <path d="M200.14,104.43c-7.36-5.53-8.54-16.2-2.11-22.5,6.07-5.95,14.89-6.13,20.74-.68,6.04,5.62,6.61,14.63,1.05,20.87-5.27,5.91-12.97,7.35-19.67,2.32Z"/>
+  </g>
+</svg>
+          <div class="studio-word">STUDIO</div>
+        </div>
+
+        <div class="signature">by Paulina Limón</div>
+
+        <h1 id="page-title">Estamos creando algo especial.</h1>
+        <p class="intro">Nuestro nuevo sitio está en proceso. Mientras tanto, puedes conocer el trabajo de Limonatta Studio y ponerte en contacto con nosotras desde aquí.</p>
+
+        <div class="actions">
+          <a class="btn primary" href="https://www.instagram.com/limonatta.studio/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram de Limonatta Studio">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.4" cy="6.7" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            Instagram
+          </a>
+
+          <a class="btn secondary" href="https://wa.me/525511550996" target="_blank" rel="noopener noreferrer" aria-label="Contactar a Limonatta Studio por WhatsApp">
+            <svg viewBox="0 0 448 512" fill="currentColor" stroke="none" aria-hidden="true">
+              <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32 101.5 32 3.8 131.9 3.8 253.9c0 44.9 11.7 88.7 33.9 127.3L0 480l102.1-36.7c37 20.2 78.7 30.8 121.6 30.8h.1c122.3 0 224.1-99.8 224.1-221.9 0-59.3-25.2-115-67-157.1zM223.8 436.7c-38.3 0-75.7-10.3-108.3-29.8l-7.8-4.6-60.6 21.8 22.1-59-5.1-8.1c-21.3-33.9-32.6-73-32.6-113.2 0-105.7 86.3-191.7 192.4-191.7 51.4 0 99.7 20 136 56.4 36.3 36.4 56.3 84.7 56.3 136.1-.1 105.8-86.4 192.1-192.4 192.1zm101.5-144.1c-5.5-2.8-32.8-16.1-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.7-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.3 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+            </svg>
+            WhatsApp
+          </a>
+        </div>
+<svg class="sparkle two" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 2c1.4 9.8 4.3 16.6 16 18-11.7 1.4-14.6 8.2-16 18-1.4-9.8-4.3-16.6-16-18C15.7 18.6 18.6 11.8 20 2Z" fill="none" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 Limonatta Studio</span>
+      <span>Fotografía · Producción audiovisual · Contenido</span>
+    </footer>
+  </div>
+</body>
+</html>
