@@ -146,7 +146,7 @@
       max-width: 680px;
       font-family: "Libre Bodoni", "Bodoni MT", Didot, serif;
       margin: 0 auto 18px;
-      font-size: clamp(2.15rem, 5vw, 4.55rem);
+      font-size: clamp(1.65rem, 3.6vw, 3.1rem);
       font-weight: 500;
       line-height: .98;
       letter-spacing: -.025em;
@@ -211,9 +211,14 @@
       .page::before, .page::after { width: 22px; opacity: .5; }
       main, footer { width: min(100% - 40px, 930px); }
       main { padding: 54px 0 64px; }
+      .hero { padding-bottom: 64px; }
       .logo-wrap { width: min(360px, 80vw); }
       .actions { width: 100%; }
       .btn { width: min(100%, 320px); }
+      .sparkle.two {
+        right: 5%;
+        bottom: 14px;
+      }
       footer { flex-direction: column; align-items: center; text-align: center; }
       footer span:last-child { text-align: center; }
     }
